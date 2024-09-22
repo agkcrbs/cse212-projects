@@ -19,6 +19,32 @@ public static class Divisors {
     private static List<int> FindDivisors(int number) {
         List<int> results = new();
         // TODO problem 1
+
+// -get a number
+// -check if the number modulo another number (remainder) is zero; that means it's a divisor
+// -reduce those checking numbers down to 1
+// -use a loop, therefore, starting at the number itself, decrementing by one each time, till the number reaches 1
+// -use a list and append the successfully checked numbers to the list
+// so...
+// int mainNumber = 5;
+// List<int> dividendList = new();
+// for (int dividend = mainNumber; i > 0; i --)
+// {
+//     if (mainNumber % dividend == 0)
+//     {
+//         dividendList.Add(dividend);
+//     }
+// }
+// Actually, instead of decrementing, increment to avoid the need to sort again, as per instructions.
+
+        for (int dividend = 1; dividend < number; dividend++) // The solution says prefix increment ++i; since nothing is assigned, I guess it's irrelevant, as both happen at the end of each loop.
+        {
+            if (number % dividend == 0)
+            {
+                results.Add(dividend);
+            }
+        }
+
         return results;
     }
 }
