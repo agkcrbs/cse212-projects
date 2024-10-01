@@ -62,5 +62,8 @@ public static class Arrays
         data.CopyTo(data.Count - amount, temporaryArray, 0, amount);
         data.InsertRange(0, temporaryArray);
         data.RemoveRange(data.Count - amount, amount);
+        // A shorter way:
+        // data.InsertRange(0, data.GetRange(data.Count - amount, amount));
+        // data.RemoveRange(data.Count - amount, amount);
     }
 }

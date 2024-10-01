@@ -11,6 +11,7 @@
         var value = queue.Dequeue();
         Console.WriteLine(value);
         // Defect(s) Found:
+        // The indices for the value to return and the RemoveAt method were set to 1 (second index) for dequeueing, while they should be at the zero index (very front).
 
         Console.WriteLine("------------");
 
@@ -28,7 +29,8 @@
         Console.WriteLine(value);
         value = queue.Dequeue();
         Console.WriteLine(value);
-        // Defect(s) Found: 
+        // Defect(s) Found:
+        // Enqueue() used Insert() at index zero instead of Add() to the back of the queue.
 
         Console.WriteLine("------------");
 
@@ -44,7 +46,7 @@
         catch (IndexOutOfRangeException) {
             Console.WriteLine("I got the exception as expected.");
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: none
     }
 
     private readonly List<int> _queue = new();
@@ -54,7 +56,7 @@
     /// </summary>
     /// <param name="value">Integer value to add to the queue</param>
     private void Enqueue(int value) {
-        _queue.Insert(0, value);
+        _queue.Add(value);
     }
 
     /// <summary>
@@ -66,8 +68,8 @@
         if (_queue.Count <= 0)
             throw new IndexOutOfRangeException();
 
-        var value = _queue[1];
-        _queue.RemoveAt(1);
+        var value = _queue[0];
+        _queue.RemoveAt(0);
         return value;
     }
 }
