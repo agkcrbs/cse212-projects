@@ -27,7 +27,7 @@
         var highPriorityIndex = 0;
         for (int index = 0; index < _queue.Count; index++) // this started at 1 and ran till LESS THAN Count minus 1, missing the front and back items
         {
-            if (_queue[index].Priority >= _queue[highPriorityIndex].Priority)
+            if (_queue[index].Priority > _queue[highPriorityIndex].Priority) // this >= comparison dequeued later equal-priority items instead of the first item
                 highPriorityIndex = index;
         }
 

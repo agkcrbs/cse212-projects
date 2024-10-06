@@ -25,6 +25,17 @@
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        return 0;
+        // HashSet<int> noDuplicates = new HashSet<int> (); // or just = [];
+        // foreach (int member in data)
+        // {
+        //     if (!noDuplicates.Contains(member)) // this whole condition can be skipped
+        //     {
+        //         noDuplicates.Add(member);
+        //     }
+        // }
+        // return data.Length - noDuplicates.Count;
+
+        HashSet<int> noDuplicates = new HashSet<int> (data); // or just = new (data);
+        return data.Length - noDuplicates.Count;
     }
 }

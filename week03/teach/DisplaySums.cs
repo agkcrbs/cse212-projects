@@ -29,5 +29,26 @@
     /// <param name="numbers">array of integers</param>
     private static void DisplaySumPairs(int[] numbers) {
         // TODO Problem 2 - This should print pairs of numbers in the given array
+        var pairsToSum = new HashSet<int> (numbers);
+        foreach (int memberNumber in pairsToSum)
+        {
+            if (pairsToSum.Contains(10 - memberNumber) &&
+                memberNumber != 10 - memberNumber)
+            {
+                Console.WriteLine($"[{memberNumber}, {10 - memberNumber}]");
+                pairsToSum.Remove(10 - memberNumber);
+            }
+        }
+
+        // // My code is O(2n) (= O(n)).  It can be done without sets in  
+        // // O(n).  The given solution only used the set for checking and
+        // // completed its task on the first pass through the loop (O(n)).
+        // var newPairs = new HashSet<int>();
+        // foreach (int memberNumber in numbers)
+        // {
+        //     if (newPairs.Contains(10 - memberNumber))
+        //         Console.WriteLine($"{memberNumber} {10 - memberNumber}");
+        //     newPairs.Add(memberNumber);
+        // }
     }
 }

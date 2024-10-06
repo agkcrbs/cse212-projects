@@ -8,7 +8,7 @@
  * - Player ID is in column 0
  * - Points is in column 8
  * 
- * Each row represents the player's stats for a single season with a single team.
+ * Each row represents the player's statistics for a single season with a single team.
  */
 
 using Microsoft.VisualBasic.FileIO;
@@ -27,10 +27,18 @@ public class Basketball
             var fields = reader.ReadFields()!;
             var playerId = fields[0];
             var points = int.Parse(fields[8]);
+
+            if (players.ContainsKey(playerId))
+                players[playerId] += points;
+            else
+                players[playerId] = points;
         }
 
-        Console.WriteLine($"Players: {{{string.Join(", ", players)}}}");
+        // Sort the dictionary by value in descending order.
+        var sortedPlayers = players
+            .OrderByDescending(givenKey => givenKey.Value) // Order by value; this needs a function parameter.
+            .ToList(); // Convert into a list of KeyValuePairs.
 
-        var topPlayers = new string[10];
+        Console.WriteLine($"Players: {string.Join(", ", sortedPlayers.GetRange(0, 10))}");
     }
 }
