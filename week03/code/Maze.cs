@@ -6,13 +6,13 @@
 /// (x,y) : [left, right, up, down]
 ///
 /// 'x' and 'y' are integers and represents locations in the maze.
-/// 'left', 'right', 'up', and 'down' are boolean are represent valid directions
+/// 'left', 'right', 'up', and 'down' are booleans that represent valid directions
 ///
 /// If a direction is false, then we can assume there is a wall in that direction.
 /// If a direction is true, then we can proceed.  
 ///
-/// If there is a wall, then throw an InvalidOperationException with the message "Can't go that way!".  If there is no wall,
-/// then the 'currX' and 'currY' values should be changed.
+/// If there is a wall, then throw an InvalidOperationException with the message "Can't go that way!".
+/// If there is no wall, then the 'currX' and 'currY' values should be changed.
 /// </summary>
 public class Maze
 {
@@ -25,7 +25,7 @@ public class Maze
         _mazeMap = mazeMap;
     }
 
-    // TODO Problem 4 - ADD YOUR CODE HERE
+    // TO DO Problem 4 - ADD YOUR CODE HERE
     /// <summary>
     /// Check to see if you can move left.  If you can, then move.  If you
     /// can't move, throw an InvalidOperationException with the message "Can't go that way!".
@@ -33,6 +33,15 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        var currentLocation = new ValueTuple<int, int>(_currX, _currY);
+        if (_mazeMap[currentLocation][0])
+        {
+            _currX -= 1;
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
     }
 
     /// <summary>
@@ -42,6 +51,11 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+        var currentLocation = new ValueTuple<int, int>(_currX, _currY);
+        if (_mazeMap[currentLocation][1])
+            _currX += 1;
+        else
+            throw new InvalidOperationException("Can't go that way!");
     }
 
     /// <summary>
@@ -51,6 +65,11 @@ public class Maze
     public void MoveUp()
     {
         // FILL IN CODE
+        var currentLocation = new ValueTuple<int, int>(_currX, _currY);
+        if (_mazeMap[currentLocation][2])
+            _currY -= 1;
+        else
+            throw new InvalidOperationException("Can't go that way!");
     }
 
     /// <summary>
@@ -60,6 +79,11 @@ public class Maze
     public void MoveDown()
     {
         // FILL IN CODE
+        var currentLocation = new ValueTuple<int, int>(_currX, _currY);
+        if (_mazeMap[currentLocation][3])
+            _currY += 1;
+        else
+            throw new InvalidOperationException("Can't go that way!");
     }
 
     public string GetStatus()
