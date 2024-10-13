@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.VisualBasic;
 
 public class Program
 {
@@ -53,6 +54,18 @@ public class Program
 
         Console.WriteLine($"Average Time 1: {time1Total / 25}");
         Console.WriteLine($"Average Time 2: {time2Total / 25}");
+
+        Console.WriteLine();
+        Console.WriteLine("Hashing");
+        Console.WriteLine("-------");
+        Console.WriteLine("positive int 3: " + 3.GetHashCode()); // positive int: 3
+        Console.WriteLine("negative int -3: " + -3.GetHashCode()); // negative int: -3
+        Console.WriteLine("string cat : " + "cat".GetHashCode()); // string: -1599535192
+        Console.WriteLine("other string dog: " + "dog".GetHashCode()); // other string: -73217838
+        Console.WriteLine("float/double 3.14: " + 3.14.GetHashCode()); // float/double: 300063655
+        Console.WriteLine("bool true: " + true.GetHashCode()); // bool: 1
+        Console.WriteLine("List/object: " + new List<string>().GetHashCode()); // List/object: 27252167
+    
     }
 
     // Count the number of duplicate items; Method 1:
@@ -88,4 +101,6 @@ public class Program
         sw.Stop();
         return sw.Elapsed.TotalMilliseconds / times;
     }
+
+
 }
