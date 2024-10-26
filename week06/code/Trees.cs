@@ -48,6 +48,22 @@ public static class Trees
     /// <param name="bst">the BinarySearchTree in which to insert the values</param>
     private static void InsertMiddle(int[] sortedNumbers, int first, int last, BinarySearchTree bst)
     {
-        // TODO Start Problem 5
+        // TO DO Start Problem 5
+        // I'm told the first and last indices.  I'll need to find
+        // the middle index from these.  Take the middle index's 
+        // value from the passed-in sorted list, and run the binary
+        // search tree's Insert() method on it.  After this, I
+        // presumably will need to find the middle index of the 
+        // left-side values and right-side values recursively,
+        // with a base case when there are no more values.
+        if (first > last)
+        {
+            return;
+        }
+
+        int middleIndex = (first + last) / 2; // (int)... strips off decimal numbers, but this isn't needed since C# integer (not float) division does it automatically
+        bst.Insert(sortedNumbers[middleIndex]);
+        InsertMiddle(sortedNumbers, first, middleIndex - 1, bst); // without - 1 and + 1, the middleIndex value will be duplicatively inserted
+        InsertMiddle(sortedNumbers, middleIndex + 1, last, bst); // these modifications achieve the base case by advancing first or decrementing last
     }
 }

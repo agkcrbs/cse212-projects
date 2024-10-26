@@ -80,7 +80,20 @@ public class BinarySearchTree : IEnumerable<int>
 
     private void TraverseBackward(Node? node, List<int> values)
     {
-        // TODO Problem 3
+        // TO DO Problem 3
+        // Orders:
+        // 1. In-order Traversal:  Visits left, current, right nodes.
+        // 2. Pre-order Traversal: Visits current, left, right nodes.
+        // 3. Post-order Traversal:       left, right, current
+        // 4. Reverse In-order Traversal: right, current, left
+        // This function uses #4 order, starting with the right subtree.
+        // Just switch the directions from TraverseForward.
+        if (node is not null)
+        {
+            TraverseBackward(node.Right, values);
+            values.Add(node.Data);
+            TraverseBackward(node.Left, values);
+        }
     }
 
     /// <summary>

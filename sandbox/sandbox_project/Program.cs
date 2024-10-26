@@ -66,7 +66,93 @@ public class Program
         Console.WriteLine("bool true: " + true.GetHashCode()); // bool: 1
         Console.WriteLine("List/object: " + new List<string>().GetHashCode()); // List/object: 27252167
     
+// Recursion
+        // Console.WriteLine(Fibonacci(90));
+
+        // string s = "abc---def";
+        // Console.WriteLine("Index: 012345678");
+        // Console.WriteLine("1)     {0}", s);
+        // Console.WriteLine("2)     {0}", s.Remove(3));
+        // Console.WriteLine("3)     {0}", s.Remove(3, 3));
+        // Console.WriteLine("orig.) {0}", s);
+
+        Permutations("ABC");
+
     }
+
+
+
+    // Slow Fib
+    // public static int Fib(int n)
+    // {
+    //     if (n <= 2)
+    //     {
+    //         // Fib(2) = 1 and Fib(1) = 1
+    //         return 1;
+    //     }
+    //     else
+    //     {
+    //         // Fib(n) = Fib(n - 1) + Fib(n - 2)
+    //         return Fib(n - 1) + Fib(n - 2);
+    //     }
+    // }
+
+    public static long Fibonacci(int n, Dictionary<int, long> remember = null)
+{
+    // If this is the first time calling the function, then
+    // we need to create the dictionary.
+    if (remember == null)
+        remember = new Dictionary<int, long>();
+    // Or, remember ??= new Dictionary<int, long>();
+
+    // Base Case
+    if (n <= 2)
+        return 1;
+
+    // Check if we have solved this one before
+    if (remember.ContainsKey(n))
+        return remember[n];
+    // Or:
+    //     if (remember.TryGetValue(n, out long value))
+    //         return value;
+
+    // Otherwise solve with recursion
+    var result = Fibonacci(n - 1, remember) + Fibonacci(n - 2, remember);
+
+    // Remember result for potential later use
+    remember[n] = result;
+    return result;
+}
+
+
+
+public static void Permutations(string letters, string word = "")
+{
+    // Try adding each of the available letters
+    // to the 'word' and add up all the
+    // resulting permutations.
+    if (letters.Length == 0)
+    {
+        Console.WriteLine(word);
+    }
+    else
+    {
+        for (var i = 0; i < letters.Length; i++)
+        {
+            // Make a copy of the letters to pass to the
+            // the next call to permutations.  We need
+            // to remove the letter we just added before
+            // we call permutations again.
+            var lettersLeft = letters.Remove(i, 1); // Remove returns, starting from the given index, the given number of items (or the entirety by default)
+
+            // Add the new letter to the word we have so far
+            Permutations(lettersLeft, word + letters[i]);  // Remove creates a new string, it doesn't affect the original string; therefor, letters[i] is still the first letter
+        }
+    }
+}
+
+
+
 
     // Count the number of duplicate items; Method 1:
     private static int CountDuplicates1(int[] data)
@@ -80,6 +166,9 @@ public class Program
             // }
             noDuplicates.Add(member);
         }
+        // Or,
+        // HashSet<int> noDuplicates = [.. data];
+        //     return data.Length - noDuplicates.Count;
         return data.Length - noDuplicates.Count;
     }
 
