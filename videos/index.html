@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Video Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;family=Open+Sans&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,22 +12,63 @@
         <h1>BYU-I CSE 212 Data Structures</h1>
     </header>
     <main>
-        <h2>W04 Interview Question</h2>
-        <a href="https://www.youtube.com/watch?v=Pk68XO3IOVc" target="_blank">
-            <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w04.jpg" alt="video preview image">
-        </a>
-        <h3>W03 Interview Question</h3>
-        <a href="https://www.youtube.com/watch?v=WQmypkb9vO4" target="_blank">
-            <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w03.jpg" alt="video preview image">
-        </a>
-        <h3>W02 Interview Question</h3>
-        <a href="https://www.youtube.com/watch?v=s4K3iTg36eY" target="_blank">
-            <img class="small-image" src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w02.jpg" alt="video preview image">
-        </a>
-        <h3>W01 Interview Question</h3>
-        <a href="https://www.youtube.com/watch?v=fYvsnVLi3TE" target="_blank">
-            <img class="small-image" src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w01.jpg" alt="video preview image">
-        </a>
+        <!-- Separator line -->
+        <div class="separator-line"></div>
+
+        <section id="main-display">
+            <h2 id="main-heading">W05 Interview Question</h2>
+            <p id="description">Recursion</p>
+            <a href="https://www.youtube.com/watch?v=divclojXYFM" target="_blank" id="main-link">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w05.jpg" alt="video preview image" id="main-image">
+            </a>
+            <h6>(image links to YouTube)</h6>
+        </section>
+
+        <!-- Separator line -->
+        <div class="separator-line"></div>
+
+        <div class="tab-container">
+            <!-- Week 6 -->
+            <div style="border: 1px solid black; border-radius: 4px;" 
+            class="tab" data-week="05" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w05.jpg" 
+            data-link="https://www.youtube.com/watch?v=divclojXYFM" data-title="W05 Interview Question" 
+            data-description="Recursion">
+                <p style="border: 1px black; border-radius: 4px; margin: 0 10px;">Coming soon</p>
+                <!-- <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w05.jpg" alt="video preview image"> -->
+            </div>
+            <!-- Week 5 -->
+            <div class="tab" data-week="05" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w05.jpg" 
+            data-link="https://www.youtube.com/watch?v=divclojXYFM" data-title="W05 Interview Question" 
+            data-description="Recursion">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w05.jpg" alt="video preview image">
+            </div>
+            <!-- Week 4 -->
+            <div class="tab" data-week="04" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w04.jpg" 
+            data-link="https://www.youtube.com/watch?v=Pk68XO3IOVc" data-title="W04 Interview Question" 
+            data-description="Linked Lists">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w04.jpg" alt="video preview image">
+            </div>
+            <!-- Week 3 -->
+            <div class="tab" data-week="03" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w03.jpg" 
+            data-link="https://www.youtube.com/watch?v=WQmypkb9vO4" data-title="W03 Interview Question" 
+            data-description="Sets and Intersection">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w03.jpg" alt="video preview image">
+            </div>
+            <!-- Week 2 -->
+            <div class="tab" data-week="02" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w02.jpg" 
+            data-link="https://www.youtube.com/watch?v=s4K3iTg36eY" data-title="W02 Interview Question" 
+            data-description="Stacks">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w02.jpg" alt="video preview image">
+            </div>
+            <!-- Week 1 -->
+            <div class="tab" data-week="01" data-src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w01.jpg" 
+            data-link="https://www.youtube.com/watch?v=fYvsnVLi3TE" data-title="W01 Interview Question" 
+            data-description="Dynamic Arrays">
+                <img src="https://raw.githubusercontent.com/agkcrbs/cse212-projects/refs/heads/main/videos/w01.jpg" alt="video preview image">
+            </div>
+        </div>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

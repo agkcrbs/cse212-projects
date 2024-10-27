@@ -1,9 +1,63 @@
-.small-image {
-    height: 150px;
-    opacity: 0.5; /* Set initial opacity to signify oldness */
-    transition: opacity 0.3s ease; /* Smooth transition for opacity change */
+/* Basic layout */
+body {
+    font-family: Montserrat, Helvetica, sans-serif;
+    text-align: center;
+    background-color: rgb(230, 243, 254);
 }
 
-.small-image:hover {
-    opacity: 1; /* Full opacity on hover */
+header {
+    margin-bottom: 20px;
+}
+
+/* Main display styling */
+#main-display {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#main-image {
+    width: 300px;  /* Adjust size as needed */
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid rgba(0, 110, 182, 0.3); /* Light initial border */
+    transition: transform 0.2s, border-color 0.2s;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.2); /* Shadow falling down and to the right */
+}
+
+#main-image:hover {
+    transform: scale(1.05); /* Slight enlargement on hover */
+    border-color: rgba(0, 110, 182, 1); /* Darker border on hover */
+}
+
+/* Separator line between main image and tab container */
+.separator-line {
+    width: 95%;
+    height: 30px;
+    margin: 20px auto;
+    background-color: rgb(0, 110, 182);
+    border-radius: 4px;
+}
+
+/* Tab styling */
+.tab-container {
+    display: flex;
+    margin: 50px;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Hover transition effect for the small image tabs */
+.tab img {
+    /* height: 150px; */
+    width: 50%;
+    background-size: cover;
+    border-radius: 4px; /* Rounded corners for tab images */
+    transition: transform 0.1s, opacity 0.3s; /* Smooth transition for opacity change */
+    cursor: pointer;
+    opacity: 0.7; /* Set initial opacity to signify oldness */
+}
+
+.tab img:hover {
+    transform: scale(1.2);
+    opacity: 1;
 }
